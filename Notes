@@ -1,0 +1,29 @@
+CONCURRENCY VS PARALLELISM
+
+1. Concurrency:
+Definition: Each CPU prepares one breakfast, but interleaves tasks for efficiency. While the tasks overlap in time, only one task is actively executed by each CPU at any given instant.
+How It Works:
+Each of the 5 CPUs (cooks) is assigned to prepare one breakfast.
+CPU 1 starts frying eggs for Breakfast 1, CPU 2 starts frying eggs for Breakfast 2, and so on.
+After frying eggs for a few moments, each CPU might switch to cooking beans, and then switch to making toast, etc.
+The CPUs are interleaving tasks for their respective breakfasts: they switch between different tasks (eggs, beans, toast) for their assigned breakfast, making progress on all tasks over time.
+All 5 breakfasts are being prepared concurrently, but each CPU is only doing one task at a time (e.g., frying eggs, then switching to beans) for its assigned breakfast.
+Key Point of Concurrency:
+Each CPU (cook) manages multiple tasks (egg frying, beans cooking, toast making) by switching between them for its own breakfast.
+All breakfasts are being prepared at the same time, but the preparation of each breakfast involves switching between tasks.
+
+2. Parallelism:
+Definition: The tasks for making all 5 breakfasts are executed simultaneously using multiple CPUs. Each CPU can be dedicated to a specific task type across all breakfasts.
+How It Works:
+CPU 1 is dedicated to frying all the eggs for all 5 breakfasts simultaneously (or in parallel batches).
+CPU 2 is dedicated to cooking all the beans for all 5 breakfasts at the same time.
+CPU 3 is dedicated to making all the toast for all 5 breakfasts at the same time, and so on.
+All tasks (frying eggs, cooking beans, making toast) are being executed simultaneously, but each CPU is specialized to one task type across multiple breakfasts.
+Key Point of Parallelism:
+The work is divided such that multiple CPUs execute tasks at the same time: all eggs are fried simultaneously by one CPU, all beans are cooked simultaneously by another, and so on.
+Each CPU is focused on executing a specific part of the process in parallel, reducing the overall time needed to complete all tasks.
+
+Improvements:
+1. Remove duplication of the message.
+2. Close the Client server gracefully when the Server is disconnected.
+3. Handle client disconnects gracefully, currently the running server displays NPE when a client disconnects.
